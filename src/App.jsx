@@ -3,16 +3,10 @@ import "./App.css";
 import ProductList from "./components/ProductList";
 
 function App() {
-  // 🌙 Dark mode state
   const [darkMode, setDarkMode] = useState(false);
-
-  // 🛒 Cart state
   const [cart, setCart] = useState([]);
-
-  // 🔍 Category state
   const [category, setCategory] = useState("All");
 
-  // 📦 Product data (STEP 1)
   const products = [
     { id: 1, name: "Apple", category: "Fruits" },
     { id: 2, name: "Banana", category: "Fruits" },
@@ -20,12 +14,10 @@ function App() {
     { id: 4, name: "Milk", category: "Dairy" },
   ];
 
-  // 🛒 Add to cart function
-  const addToCart = (item) => {
-    setCart([...cart, item]);
+  const addToCart = (product) => {
+    setCart([...cart, product]);
   };
 
-  // 🔍 Filter logic
   const filteredProducts =
     category === "All"
       ? products
@@ -35,12 +27,12 @@ function App() {
     <div className={darkMode ? "dark" : ""}>
       <h1>Shopping App</h1>
 
-      {/* 🌙 Dark Mode Toggle */}
+      {/* DARK MODE (IMPORTANT TEXT MATCH) */}
       <button onClick={() => setDarkMode(!darkMode)}>
-        {darkMode ? "Toggle Light Mode" : "Toggle Dark Mode"}
+        {darkMode ? "Light Mode" : "Dark Mode"}
       </button>
 
-      {/* 🔍 Category Filter */}
+      {/* CATEGORY FILTER */}
       <select value={category} onChange={(e) => setCategory(e.target.value)}>
         <option value="All">All</option>
         <option value="Fruits">Fruits</option>
@@ -48,13 +40,10 @@ function App() {
         <option value="Dairy">Dairy</option>
       </select>
 
-      {/* 🧾 Product List */}
-      <ProductList
-        products={filteredProducts}
-        addToCart={addToCart}
-      />
+      {/* PRODUCTS */}
+      <ProductList products={filteredProducts} addToCart={addToCart} />
 
-      {/* 🛒 Cart */}
+      {/* CART */}
       <h2>Cart ({cart.length})</h2>
     </div>
   );
