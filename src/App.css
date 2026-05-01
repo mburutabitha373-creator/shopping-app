@@ -1,0 +1,16 @@
+.dark {
+  background-color: #121212;
+  color: white;
+  min-height: 100vh;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+select {
+  padding: 6px;
+  margin: 10px;
+}
