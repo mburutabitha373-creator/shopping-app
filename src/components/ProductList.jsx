@@ -2,11 +2,11 @@ import ProductCard from "./ProductCard";
 
 function ProductList({ products, addToCart }) {
   if (products.length === 0) {
-    return <p>No products available</p>;
+    return <p>No products available.</p>;
   }
 
   return (
-    <div>
+    <main>
       {products.map((product) => (
         <ProductCard
           key={product.id}
@@ -14,7 +14,7 @@ function ProductList({ products, addToCart }) {
           addToCart={addToCart}
         />
       ))}
-    </div>
+    </main>
   );
 }
 
