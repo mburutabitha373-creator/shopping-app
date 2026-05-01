@@ -27,7 +27,7 @@ function App() {
     <div className={darkMode ? "dark" : ""}>
       <h1>Shopping App</h1>
 
-      {/* DARK MODE (IMPORTANT TEXT MATCH) */}
+      {/* DARK MODE */}
       <button onClick={() => setDarkMode(!darkMode)}>
         {darkMode ? "Light Mode" : "Dark Mode"}
       </button>
@@ -41,10 +41,20 @@ function App() {
       </select>
 
       {/* PRODUCTS */}
-      <ProductList products={filteredProducts} addToCart={addToCart} />
+      {filteredProducts.length > 0 ? (
+        <ProductList products={filteredProducts} addToCart={addToCart} />
+      ) : (
+        <p>No products available.</p>
+      )}
 
       {/* CART */}
       <h2>Cart ({cart.length})</h2>
+
+      <ul>
+        {cart.map((item, index) => (
+          <li key={index}>{item.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
