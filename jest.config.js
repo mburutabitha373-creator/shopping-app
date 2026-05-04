@@ -1,8 +1,9 @@
-module.exports = {
-  testEnvironment: "jsdom",
-  setupFilesAfterEnv: ["<rootDir>/vitest.setup.js"],
-  testMatch: [
-    "**/__tests__/**/*.[jt]s?(x)",
-    "**/?(*.)+(spec|test).[jt]s?(x)"
-  ]
+export default {
+  testEnvironment: "jest-environment-jsdom",
+  transform: {
+    "^.+\\.[jt]sx?$": "babel-jest"
+  },
+  moduleNameMapper: {
+    "\\.(css)$": "identity-obj-proxy"
+  }
 };
